@@ -1,0 +1,22 @@
+[alias]
+	st = status
+	co = checkout
+	br = branch
+	sta = stash
+[merge]
+	tool = meld
+[user]
+	email = tomas.caslo90@gmail.com
+	name = tomascaslo
+[core]
+	editor = /usr/bin/vim
+	autocrlf = false
+	safecrlf = false
+[push]
+	default = matching
+[rerere]
+	enabled = true
+[filter "lfs"]
+	clean = git-lfs clean %f
+	smudge = git-lfs smudge %f
+	required = true
