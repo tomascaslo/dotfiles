@@ -5,6 +5,10 @@ set tabstop=2
 set shiftwidth=2
 set autoindent
 set smartindent
+set smartcase
+set gdefault
+set showmatch
+set matchtime=2
 set guifont=MESLO\ LG\ S\ Regular\ for\ Powerline:h14
 
 set rtp+=~/.vim/bundle/vundle/
@@ -48,6 +52,13 @@ nmap <silent> <A-Down> :wincmd j<CR>
 nmap <silent> <A-Left> :wincmd h<CR>
 nmap <silent> <A-Right> :wincmd l<CR>
 
+" Wildmenu completion
+set wildmode=longest,list,full
+set wildmenu  
+set wildignore=*.o,*.obj,*~
+set wildignore+=*.swp,*.pyc,*.class
+set wildignore+=*.jpg,*.bmp,*.gif,*.png,*.jpeg
+
 " NERDTree
 map <C-n> :NERDTreeToggle<CR>
 
@@ -64,6 +75,8 @@ let g:airline_powerline_fonts = 1
 
 " Ack config
 set runtimepath^=~/.vim/bundle/ag
+nnoremap <leader>agc :Ag! "<cword>"<cr>
+nnoremap <leader>ag :Ag! ""<C-Left><Left>
 
 " make YCM compatible with UltiSnips (using supertab)
 let g:ycm_key_list_select_completion = ['<C-n>', '<Down>']
