@@ -14,3 +14,4 @@ alias vim='/Applications/MacVim.app/Contents/MacOS/Vim'
 # Run twolfson/sexy-bash-prompt
 . ~/.bash_prompt
 
+alias pjs="pathogenjs"
