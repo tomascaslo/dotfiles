@@ -78,7 +78,7 @@ let g:airline_powerline_fonts = 1
 " Ack config
 set runtimepath^=~/.vim/bundle/ag
 nnoremap <leader>agc :Ag! "<cword>"<cr>
-nnoremap <leader>ag :Ag! ""<C-Left><Left>
+nnoremap <leader>ag :Ag! ""<Left>
 
 " make YCM compatible with UltiSnips (using supertab)
 let g:ycm_key_list_select_completion = ['<C-n>', '<Down>']
