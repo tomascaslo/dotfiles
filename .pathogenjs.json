@@ -1,10 +1,10 @@
 {
   "CamelCaseMotion": "bkad/CamelCaseMotion",
   "ag.vim": "rking/ag.vim",
-  "dash.vim": "rizzatti/dash.vim",
-  "editorconfig-vim": "editorconfig/editorconfig-vim",
-  "closetag.vim": "docunext/closetag.vim",
   "ctrlp.vim": "kien/ctrlp.vim",
+  "dash.vim": "rizzatti/dash.vim",
+  "closetag.vim": "docunext/closetag.vim",
+  "editorconfig-vim": "editorconfig/editorconfig-vim",
   "emmet-vim": "mattn/emmet-vim",
   "fonts": "powerline/fonts",
   "gundo.vim": "sjl/gundo.vim",
@@ -31,9 +31,9 @@
   "vim-easymotion": "easymotion/vim-easymotion",
   "vim-fugitive": "tpope/vim-fugitive",
   "vim-git": "tpope/vim-git",
-  "vim-json": "elzr/vim-json",
   "vim-gitgutter": "airblade/vim-gitgutter",
   "vim-indent-guides": "nathanaelkane/vim-indent-guides",
+  "vim-json": "elzr/vim-json",
   "vim-jsx": "mxw/vim-jsx",
   "vim-less": "groenewege/vim-less",
   "vim-localvimrc": "embear/vim-localvimrc",
@@ -43,9 +43,11 @@
   "vim-rails": "tpope/vim-rails",
   "vim-repeat": "tpope/vim-repeat",
   "vim-snippets": "honza/vim-snippets",
-  "vim-unimpaired": "tpope/vim-unimpaired",
   "vim-surround": "tpope/vim-surround",
   "vimproc.vim": "Shougo/vimproc.vim",
+  "vim-unimpaired": "tpope/vim-unimpaired",
   "vundle": "gmarik/vundle",
-  "youcompleteme": "valloric/youcompleteme"
+  "youcompleteme": "valloric/youcompleteme",
+  "vim-flake8": "nvie/vim-flake8",
+  "vim-virtualenv": "jmcantrell/vim-virtualenv"
 }

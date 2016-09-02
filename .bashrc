@@ -2,6 +2,12 @@ export PS1="\W \$ "
 export EDITOR='vim'
 export PYTHONPATH=/usr/local/lib/python2.7/site-packages:$PYTHONPATH
 
+# Locale
+export LC_ALL=en_US.UTF-8
+export LANG=en_US.UTF-8
+
+export WORKON_HOME=~/.penvs
+
 # Drupal Drush ugh...
 alias dru='/Users/tomascaslo/Documents/dev/projects/vagrant-drupal/drush/drush'
 export PATH="$PATH:/Applications/DevDesktop/drush"

@@ -12,6 +12,7 @@ set gdefault
 set showmatch
 set matchtime=2
 set guifont=MESLO\ LG\ S\ Regular\ for\ Powerline:h14
+set encoding=utf-8
 
 set rtp+=~/.vim/bundle/vundle/
 call vundle#rc()
@@ -28,6 +29,12 @@ set background=dark
 let g:solarized_termcolors = 256
 colorscheme solarized
 
+" Enable folding
+set foldmethod=indent
+set foldlevel=99
+set foldnestmax=3
+nnoremap <space> za
+
 " <leader>
 let mapleader=","
 
@@ -41,8 +48,8 @@ set runtimepath^=~/.vim/bundle/ctrlp.vim
 
 " CtrlP specific config
 let g:ctrlp_working_path_mode = 'a'
-set wildignore+=*/tmp/*,*.so,*.swp,*.zip " MacOSX/Linux
-" add node_modules and bower_modules so ctrlp doesn't look for things there
+
+" Add node_modules and bower_modules so ctrlp doesn't look for things there
 let g:ctrlp_custom_ignore = {
 	\ 'dir':  '\v[\/]((node_modules|bower_modules)|(\.(git|hg|svn)))$',
 	\ 'file': '\v\.(DS_Store)$',
@@ -54,11 +61,16 @@ nmap <silent> <A-Down> :wincmd j<CR>
 nmap <silent> <A-Left> :wincmd h<CR>
 nmap <silent> <A-Right> :wincmd l<CR>
 
+" Moving around Vim loclists
+nmap <leader>n :lnext<CR>
+nmap <leader>p :lprev<CR>
+
 " Wildmenu completion
 set wildmode=longest,list,full
 set wildmenu  
 set wildignore=*.o,*.obj,*~
-set wildignore+=*.swp,*.pyc,*.class
+set wildignore+=*/tmp/*,*.so,*.swp,*.zip " MacOSX/Linux
+set wildignore+=*.pyc,*.class
 set wildignore+=*.jpg,*.bmp,*.gif,*.png,*.jpeg
 
 " NERDTree
@@ -111,6 +123,7 @@ let g:syntastic_error_symbol = '❌'
 let g:syntastic_style_error_symbol = '⁉️'
 let g:syntastic_warning_symbol = '⚠️'
 let g:syntastic_style_warning_symbol = '💩'
+let g:syntastic_always_populate_loc_list = 1 
 highlight link SyntasticErrorSign SignColumn
 highlight link SyntasticWarningSign SignColumn
 highlight link SyntasticStyleErrorSign SignColumn
@@ -121,3 +134,24 @@ set backupcopy=yes
 
 " For CamelCaseMotion
 call camelcasemotion#CreateMotionMappings('<leader>')
+
+" Python config
+au BufNewFile,BufRead *.py
+      \ set tabstop=4 |
+      \ set softtabstop=4 |
+      \ set shiftwidth=4 |
+      \ set textwidth=79 |
+      \ set expandtab |
+      \ set autoindent |
+      \ set fileformat=unix
+let python_higlight_all=1
+
+" Python with virtualenv support
+py << EOF
+import os
+import sys
+if 'VIRTUAL_ENV' in os.environ:
+  project_base_dir = os.environ['VIRTUAL_ENV']
+  activate_this = os.path.join(project_base_dir, 'bin/activate_this.py')
+  execfile(activate_this, dict(__file__=activate_this))
+EOF
