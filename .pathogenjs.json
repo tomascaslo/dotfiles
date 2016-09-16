@@ -2,7 +2,6 @@
   "CamelCaseMotion": "bkad/CamelCaseMotion",
   "ag.vim": "rking/ag.vim",
   "ctrlp.vim": "kien/ctrlp.vim",
-  "dash.vim": "rizzatti/dash.vim",
   "closetag.vim": "docunext/closetag.vim",
   "editorconfig-vim": "editorconfig/editorconfig-vim",
   "emmet-vim": "mattn/emmet-vim",
@@ -11,7 +10,6 @@
   "image.vim": "ashisha/image.vim",
   "nerdcommenter": "scrooloose/nerdcommenter",
   "nerdtree": "scrooloose/nerdtree",
-  "vim-node": "moll/vim-node",
   "rust.vim": "rust-lang/rust.vim",
   "vim-pathogen": "tpope/vim-pathogen",
   "syntastic": "scrooloose/syntastic",
@@ -49,5 +47,9 @@
   "vundle": "gmarik/vundle",
   "youcompleteme": "valloric/youcompleteme",
   "vim-flake8": "nvie/vim-flake8",
-  "vim-virtualenv": "jmcantrell/vim-virtualenv"
+  "vim-virtualenv": "jmcantrell/vim-virtualenv",
+  "disabled": {
+    "vim-node": "moll/vim-node"
+  },
+  "bash-support.vim": "vim-scripts/bash-support.vim"
 }

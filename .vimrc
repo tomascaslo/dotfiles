@@ -1,6 +1,12 @@
-set nocompatible
-filetype off    " Required
+" Load pathogen plugins
+execute pathogen#infect()
+call pathogen#helptags()
+
+filetype off
 filetype indent on
+filetype plugin on
+filetype plugin indent on
+set nocompatible
 set tabstop=2
 set shiftwidth=2
 set softtabstop=2
@@ -8,22 +14,31 @@ set expandtab
 set autoindent
 set smartindent
 set smartcase
-set gdefault
+set gdefault " Sets the g for sustitute command to be always on
 set showmatch
 set matchtime=2
 set guifont=MESLO\ LG\ S\ Regular\ for\ Powerline:h14
 set encoding=utf-8
-
-set rtp+=~/.vim/bundle/vundle/
-call vundle#rc()
-
-Bundle 'gmarik/vundle'
-Bundle 'altercation/vim-colors-solarized'
-Plugin 'valloric/youcompleteme'
-
-" Some settings to enable the theme:
+set cursorline
 set relativenumber
 set number " Show line numbers
+
+" <leader>
+let mapleader=","
+
+" Some convenience mappings
+noremap <F6> :set hlsearch! hlsearch?<CR> " Toggle search highlighting
+nnoremap <leader>ef :vsplit ~/.config/fish/config.fish<CR>
+nnoremap <leader>ev :vsplit $MYVIMRC<CR>
+nnoremap <leader>rv :source $MYVIMRC<CR>
+nnoremap <leader>h :help <C-R><C-W><CR>
+nnoremap W :w<CR>
+nnoremap t %
+vnoremap t %
+nnoremap q: :q
+vnoremap yy "*y<CR>
+
+" Solarized setup
 syntax enable
 set background=dark
 let g:solarized_termcolors = 256
@@ -35,13 +50,13 @@ set foldlevel=99
 set foldnestmax=3
 nnoremap <space> za
 
-" <leader>
-let mapleader=","
+" Bash Support 
+let g:BASH_AuthorName   = 'Tomas Castro'
+let g:BASH_Email        = 'tomas.caslo90@gmail.com'
+let g:BASH_Company      = 'Cloudy Tech LLC' 
 
-filetype plugin on
-filetype plugin indent on " Required
-execute pathogen#infect()
-call pathogen#helptags()
+" localvimrc
+let g:localvimrc_ask = 0
 
 " CtrlP
 set runtimepath^=~/.vim/bundle/ctrlp.vim
@@ -61,6 +76,16 @@ nmap <silent> <A-Down> :wincmd j<CR>
 nmap <silent> <A-Left> :wincmd h<CR>
 nmap <silent> <A-Right> :wincmd l<CR>
 
+" Maps Alt-[h,j,k,l] to resizing a window split
+nnoremap <silent>+ :exe "resize " . (winheight(0) * 3/2)<CR>
+nnoremap <silent>- :exe "resize " . (winheight(0) * 2/3)<CR>
+
+" Improved window split navigation
+nnoremap <C-h> <C-w>h
+nnoremap <C-j> <C-w>j
+nnoremap <C-k> <C-w>k
+nnoremap <C-l> <C-w>l
+
 " Moving around Vim loclists
 nmap <leader>n :lnext<CR>
 nmap <leader>p :lprev<CR>
@@ -69,7 +94,7 @@ nmap <leader>p :lprev<CR>
 set wildmode=longest,list,full
 set wildmenu  
 set wildignore=*.o,*.obj,*~
-set wildignore+=*/tmp/*,*.so,*.swp,*.zip " MacOSX/Linux
+set wildignore+=*/tmp/*,*.so,*.swp,*.zip
 set wildignore+=*.pyc,*.class
 set wildignore+=*.jpg,*.bmp,*.gif,*.png,*.jpeg
 
@@ -89,10 +114,11 @@ let g:airline_powerline_fonts = 1
 
 " Ack config
 set runtimepath^=~/.vim/bundle/ag
-nnoremap <leader>agc :Ag! "<cword>"<cr>
+nnoremap <leader>agc :Ag! "<cword>"<CR>
 nnoremap <leader>ag :Ag! ""<Left>
 
 " make YCM compatible with UltiSnips (using supertab)
+let g:ycm_path_to_python_interpreter="/usr/local/bin/python"
 let g:ycm_key_list_select_completion = ['<C-n>', '<Down>']
 let g:ycm_key_list_previous_completion = ['<C-p>', '<Up>']
 let g:SuperTabDefaultCompletionType = '<C-n>'
@@ -135,6 +161,16 @@ set backupcopy=yes
 " For CamelCaseMotion
 call camelcasemotion#CreateMotionMappings('<leader>')
 
+" Bash config
+au BufNewFile,BufRead *.sh
+      \ set tabstop=4 |
+      \ set softtabstop=4 |
+      \ set shiftwidth=4 |
+      \ set textwidth=79 |
+      \ set noexpandtab |
+      \ set autoindent |
+      \ set fileformat=unix
+
 " Python config
 au BufNewFile,BufRead *.py
       \ set tabstop=4 |
@@ -155,3 +191,4 @@ if 'VIRTUAL_ENV' in os.environ:
   activate_this = os.path.join(project_base_dir, 'bin/activate_this.py')
   execfile(activate_this, dict(__file__=activate_this))
 EOF
+
